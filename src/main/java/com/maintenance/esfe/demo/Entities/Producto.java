@@ -4,8 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Producto")
 public class Producto {
 
     // IDENTIFICADOR UNICO DE CADA REGISTRO
@@ -17,6 +19,7 @@ public class Producto {
     private double precio;
     private String categoria;
     private int stock;
+
 
     public int getId() {
         return id;
@@ -65,4 +68,18 @@ public class Producto {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
+    //CONSTRUCTOR
+    public Producto(Integer id) {
+        this.id = id;
+    }
+
+    public Producto(int id, String nombre, String descripcion, double precio, String categoria, int stock) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.categoria = categoria;
+        this.stock = stock;
+    }   
 }

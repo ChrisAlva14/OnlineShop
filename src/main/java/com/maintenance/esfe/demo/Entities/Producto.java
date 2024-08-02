@@ -1,10 +1,7 @@
 package com.maintenance.esfe.demo.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "Producto")
@@ -14,13 +11,28 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @NotBlank(message = "CAMPO REQUERIDO")
+    @Column(name = "nombre", length = 100)
     private String nombre;
+
+    @NotBlank(message = "CAMPO REQUERIDO")
+    @Column(name = "descripcion", length = 100)
     private String descripcion;
+
+    @NotBlank(message = "CAMPO REQUERIDO")
+    @Column(name = "precio")
     private double precio;
+
+    @NotBlank(message = "CAMPO REQUERIDO")
+    @Column(name = "categoria", length = 100)
     private String categoria;
+
+    @NotBlank(message = "CAMPO REQUERIDO")
+    @Column(name = "stock")
     private int stock;
 
-
+    //GETTERS AND SETTERS
     public int getId() {
         return id;
     }
@@ -69,7 +81,10 @@ public class Producto {
         this.stock = stock;
     }
 
-    //CONSTRUCTOR
+    // CONSTRUCTORES
+    public Producto() {
+    }
+
     public Producto(Integer id) {
         this.id = id;
     }
@@ -81,5 +96,5 @@ public class Producto {
         this.precio = precio;
         this.categoria = categoria;
         this.stock = stock;
-    }   
+    }
 }

@@ -16,7 +16,7 @@ public class Pedido {
     private int id;
     private LocalDate fechaPedido;
     private String estadoPedido;  // Los posibles valores son "pendiente", "enviado", "entregado", "cancelado"
-    private int clienteId;
+    // private int clienteId;
 
     public int getId() {
         return id;
@@ -42,23 +42,24 @@ public class Pedido {
         this.estadoPedido = estadoPedido;
     }
 
-    public int getClienteId() {
+    /*public int getClienteId() {
         return clienteId;
     }
 
     public void setClienteId(int clienteId) {
         this.clienteId = clienteId;
     }
+    */
 
     // CONSTRUCTORES
     public Pedido(Integer id) {
         this.id = id;
     }
 
-    public Pedido(int id, LocalDate fechaPedido, String estadoPedido, int clienteId) {
+    public Pedido(int id, LocalDate fechaPedido, String estadoPedido) {
         this.id = id;
         this.fechaPedido = fechaPedido;
         this.estadoPedido = estadoPedido;
-        this.clienteId = clienteId;
+        //this.clienteId = clienteId;
     }
 }

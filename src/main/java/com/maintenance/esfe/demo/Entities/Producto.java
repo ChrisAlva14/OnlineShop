@@ -10,7 +10,7 @@ public class Producto {
     // IDENTIFICADOR UNICO DE CADA REGISTRO
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @NotBlank(message = "CAMPO REQUERIDO")
     @Column(name = "nombre", length = 100)
@@ -20,19 +20,20 @@ public class Producto {
     @Column(name = "descripcion", length = 100)
     private String descripcion;
 
-    @NotBlank(message = "CAMPO REQUERIDO")
+    @NotBlank(message = "El precio no puede estar vacío")
     @Column(name = "precio")
-    private double precio;
+    private Double precio;
 
     @NotBlank(message = "CAMPO REQUERIDO")
     @Column(name = "categoria", length = 100)
     private String categoria;
 
-    @NotBlank(message = "CAMPO REQUERIDO")
+    @NotBlank(message = "El precio no puede estar vacío")
     @Column(name = "stock")
-    private int stock;
+    private Integer stock;
 
     //GETTERS AND SETTERS
+
     public int getId() {
         return id;
     }
@@ -57,11 +58,11 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public double getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
 
@@ -73,11 +74,11 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    public int getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 
@@ -89,7 +90,7 @@ public class Producto {
         this.id = id;
     }
 
-    public Producto(int id, String nombre, String descripcion, double precio, String categoria, int stock) {
+    public Producto(Integer id, String nombre, String descripcion, Double precio, String categoria, Integer stock) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -97,4 +98,5 @@ public class Producto {
         this.categoria = categoria;
         this.stock = stock;
     }
+
 }

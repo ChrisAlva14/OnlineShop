@@ -32,13 +32,16 @@ public class Producto {
     @Column(name = "stock")
     private Integer stock;
 
-    //GETTERS AND SETTERS
+    @NotBlank(message = "La imagen no puede estar vacía")
+    @Column(name = "imagen")
+    private String imagenFile;
 
-    public int getId() {
+    // GETTERS AND SETTERS
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -82,21 +85,31 @@ public class Producto {
         this.stock = stock;
     }
 
+    public String getImagenFile() {
+        return imagenFile;
+    }
+
+    public void setImagenFile(String imagenFile) {
+        this.imagenFile = imagenFile;
+    }
+
     // CONSTRUCTORES
+
     public Producto() {
     }
 
-    public Producto(Integer id) {
-        this.id = id;
-    }
-
-    public Producto(Integer id, String nombre, String descripcion, Double precio, String categoria, Integer stock) {
+    public Producto(Integer id, @NotBlank(message = "CAMPO REQUERIDO") String nombre,
+            @NotBlank(message = "CAMPO REQUERIDO") String descripcion,
+            @NotBlank(message = "El precio no puede estar vacío") Double precio,
+            @NotBlank(message = "CAMPO REQUERIDO") String categoria,
+            @NotBlank(message = "El precio no puede estar vacío") Integer stock,
+            @NotBlank(message = "La imagen no puede estar vacía") String imagenFile) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.categoria = categoria;
         this.stock = stock;
+        this.imagenFile = imagenFile;
     }
-
 }

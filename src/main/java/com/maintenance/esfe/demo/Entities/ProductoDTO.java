@@ -13,16 +13,18 @@ public class ProductoDTO {
     @Size(min = 10, message = "LA DESCRIPCION DEBE CONTENER AL MENOS 10 CARACTERES")
     @Size(max = 2000, message = "LA DESCRIPCION NO PUEDE EXCEDER LOS 2,000 CARACTERES")
     private String descripcion;
-
-   @Min(0)
+    @Min(0)
     private Double precio;
+
+    @Min(0)
+    private Integer stock;
 
     @NotEmpty(message = "CAMPO REQUERIDO")
     private String categoria;
 
     private MultipartFile imagenFile;
 
-    //GETTERS AND SETTERS
+    // GETTERS AND SETTERS
 
     public String getNombre() {
         return nombre;
@@ -63,5 +65,13 @@ public class ProductoDTO {
     public void setImagenFile(MultipartFile imagenFile) {
         this.imagenFile = imagenFile;
     }
-    
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
 }

@@ -1,9 +1,7 @@
 package com.maintenance.esfe.demo.Controllers;
 
 import java.io.InputStream;
-import java.nio.file.Files;
 import java.nio.file.*;
-import java.nio.file.StandardCopyOption;
 import java.sql.Date;
 import java.util.List;
 
@@ -86,12 +84,115 @@ public class ProductoController {
         producto.setStock(productoDTO.getStock());
         producto.setImagenFile(nombreArchivoAlmacenado);
 
-
-        //GUARDAR EN EL REPOSITORIO
+        // GUARDAR EN EL REPOSITORIO
         productoRepository.save(producto);
 
         // RETORNA A LA VISTA INDEX DE PRODUCTOS
         return "redirect:/productos";
     }
 
+    // MODIFICAR UN PRODUCTO
+    @GetMapping("/edit")
+    public String modificarProducto(Model model, @RequestParam int id) {
+
+        try {
+            Producto producto = productoRepository.findById(id).get();
+            model.addAttribute("producto", producto);
+
+            ProductoDTO productoDTO = new ProductoDTO();
+            productoDTO.setNombre(producto.getNombre());
+            productoDTO.setDescripcion(producto.getDescripcion());
+            productoDTO.setPrecio(producto.getPrecio());
+            productoDTO.setCategoria(producto.getCategoria());
+            productoDTO.setStock(producto.getStock());
+
+            model.addAttribute("productoDTO", productoDTO);
+
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+            return "redirect:/productos";
+        }
+
+        return "productos/editProductos";
+    }
+
+    @PostMapping("/edit")
+    public String modificarProductoNuevo(Model model, @RequestParam int id,
+            @Valid @ModelAttribute ProductoDTO productoDTO,
+            BindingResult BindingResult) {
+
+        try {
+
+            Producto producto = productoRepository.findById(id).get();
+            model.addAttribute("producto", producto);
+
+            // VALIDA SI NO HAY ALGUN ERROR
+            if (BindingResult.hasErrors()) {
+                return "productos/editProductos";
+            }
+
+            // ACTUALIZAR IMAGEN
+
+            if (!productoDTO.getImagenFile().isEmpty()) {
+                // ELIMINAR LA IMG VIEJA
+                String uploadDir = "public/images/";
+                Path oldImagePath = Paths.get(uploadDir + producto.getImagenFile());
+                try {
+                    Files.delete(oldImagePath);
+                } catch (Exception ex) {
+                    System.out.println("Exception: " + ex.getMessage());
+                }
+
+                // GUARDAR LA NUEVA IMG
+                MultipartFile image = productoDTO.getImagenFile();
+                Date createdAt = new Date(0);
+                String storageFileName = createdAt.getTime() + " " + image.getOriginalFilename();
+                try (InputStream inputStream = image.getInputStream()) {
+                    Files.copy(inputStream, Paths.get(uploadDir + storageFileName),
+                            StandardCopyOption.REPLACE_EXISTING);
+                }
+
+                producto.setImagenFile(storageFileName);
+            }
+
+            producto.setNombre(productoDTO.getNombre());
+            producto.setDescripcion(productoDTO.getDescripcion());
+            producto.setPrecio(productoDTO.getPrecio());
+            producto.setCategoria(productoDTO.getCategoria());
+            producto.setStock(productoDTO.getStock());
+
+            productoRepository.save(producto);
+
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+            return "redirect:/productos";
+        }
+
+        return "redirect:/productos";
+    }
+
+    // ELIMINAR UN PRODUCTO
+    @GetMapping("/delete")
+    public String eliminarProducto(@RequestParam int id) {
+
+        try {
+            Producto producto = productoRepository.findById(id).get();
+
+            Path imagePath = Paths.get("public/images/" + producto.getImagenFile());
+
+            try {
+                Files.delete(imagePath);
+            } catch (Exception e) {
+                System.out.println("Exception: " + e.getMessage());
+            }
+
+            //ELIMINAR PRODUCTO DE LA DATABASE
+            productoRepository.delete(producto);
+
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+            return "redirect:/productos";
+        }
+        return "redirect:/productos";
+    }
 }

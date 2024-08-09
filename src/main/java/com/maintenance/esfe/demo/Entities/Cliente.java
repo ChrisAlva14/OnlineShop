@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @NotBlank(message = "el nombre es requerido")
     @Column(name = "nombre", length = 100)
@@ -30,7 +30,7 @@ public class Cliente {
       
     }
 
-    public Cliente(int id){
+    public Cliente(Integer id){
         this.id = id;
     }
     //Contructor lleno//
@@ -43,7 +43,7 @@ public class Cliente {
       
     }
 
-    public Cliente(int id, String nombre, String direccion,String email,String telefono){
+    public Cliente(Integer id, String nombre, String direccion,String email,String telefono){
         this.id = id;
         this.nombre=nombre;
         this.direccion=direccion;
@@ -52,10 +52,10 @@ public class Cliente {
       
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -87,10 +87,4 @@ public class Cliente {
     public void setTelefono(@NotBlank(message="El telefono es requerido") String telefono) {
         this.telefono = telefono;
     }
-        
-   
-
-    
-    
-
 }

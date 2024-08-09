@@ -17,18 +17,16 @@ public class Producto {
     private String nombre;
 
     @NotBlank(message = "CAMPO REQUERIDO")
-    @Column(name = "descripcion", length = 100)
+    @Column(name = "descripcion")
     private String descripcion;
 
-    @NotBlank(message = "El precio no puede estar vacío")
     @Column(name = "precio")
-    private Double precio;
+    private double precio;
 
     @NotBlank(message = "CAMPO REQUERIDO")
     @Column(name = "categoria", length = 100)
     private String categoria;
 
-    @NotBlank(message = "El precio no puede estar vacío")
     @Column(name = "stock")
     private Integer stock;
 

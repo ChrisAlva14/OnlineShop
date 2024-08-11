@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.maintenance.esfe.demo.Entities.Producto;
 import com.maintenance.esfe.demo.Entities.ProductoDTO;
@@ -43,7 +44,7 @@ public class ProductoController {
     }
 
     @PostMapping("/create")
-    public String crearProductoNuevo(@Valid @ModelAttribute ProductoDTO productoDTO, BindingResult BindingResult) {
+    public String crearProductoNuevo(@Valid @ModelAttribute ProductoDTO productoDTO, BindingResult BindingResult, RedirectAttributes redirectAttributes) {
         // VALIDA QUE SE HAYA SUBIDO LA IMAGEN
         if (productoDTO.getImagenFile().isEmpty()) {
             BindingResult.addError(new FieldError("productoDTO", "imagenFile", "LA IMAGEN ES REQUERIDA"));
@@ -83,6 +84,9 @@ public class ProductoController {
         producto.setCategoria(productoDTO.getCategoria());
         producto.setStock(productoDTO.getStock());
         producto.setImagenFile(nombreArchivoAlmacenado);
+
+        // AGREGA EL MENSAJE DE ÉXITO
+        redirectAttributes.addFlashAttribute("successMessage", "Producto creado exitosamente");
 
         // GUARDAR EN EL REPOSITORIO
         productoRepository.save(producto);
@@ -186,7 +190,7 @@ public class ProductoController {
                 System.out.println("Exception: " + e.getMessage());
             }
 
-            //ELIMINAR PRODUCTO DE LA DATABASE
+            // ELIMINAR PRODUCTO DE LA DATABASE
             productoRepository.delete(producto);
 
         } catch (Exception e) {

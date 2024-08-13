@@ -1,36 +1,45 @@
 package com.maintenance.esfe.demo.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import java.time.LocalDate;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import java.sql.Date;
 
 @Entity
-@Table(name = "pedido")
+@Table(name = "Pedido")
 public class Pedido {
 
+    // IDENTIFICADOR ÚNICO DE CADA REGISTRO
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private LocalDate fechaPedido;
-    private String estadoPedido;  // Los posibles valores son "pendiente", "enviado", "entregado", "cancelado"
-    // private int clienteId;
+    private Integer id;
 
-    public int getId() {
+    @NotNull(message = "La fecha de pedido no puede estar vacía")
+    @Column(name = "fecha_pedido")
+    private Date fechaPedido;
+
+    @NotBlank(message = "El estado del pedido es requerido")
+    @Column(name = "estado_pedido", length = 50)
+    private String estadoPedido;
+
+    @NotNull(message = "El ID del cliente es requerido")
+    @Column(name = "cliente_id")
+    private Integer clienteId;
+
+    // GETTERS AND SETTERS
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public LocalDate getFechaPedido() {
+    public Date getFechaPedido() {
         return fechaPedido;
     }
 
-    public void setFechaPedido(LocalDate fechaPedido) {
+    public void setFechaPedido(Date fechaPedido) {
         this.fechaPedido = fechaPedido;
     }
 
@@ -42,24 +51,24 @@ public class Pedido {
         this.estadoPedido = estadoPedido;
     }
 
-    /*public int getClienteId() {
+    public Integer getClienteId() {
         return clienteId;
     }
 
-    public void setClienteId(int clienteId) {
+    public void setClienteId(Integer clienteId) {
         this.clienteId = clienteId;
     }
-    */
 
     // CONSTRUCTORES
-    public Pedido(Integer id) {
-        this.id = id;
+    public Pedido() {
     }
 
-    public Pedido(int id, LocalDate fechaPedido, String estadoPedido) {
+    public Pedido(Integer id, @NotNull(message = "La fecha de pedido no puede estar vacía") Date fechaPedido,
+                  @NotBlank(message = "El estado del pedido es requerido") String estadoPedido,
+                  @NotNull(message = "El ID del cliente es requerido") Integer clienteId) {
         this.id = id;
         this.fechaPedido = fechaPedido;
         this.estadoPedido = estadoPedido;
-        //this.clienteId = clienteId;
+        this.clienteId = clienteId;
     }
 }

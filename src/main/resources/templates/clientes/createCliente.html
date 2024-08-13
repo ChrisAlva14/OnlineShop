@@ -28,11 +28,11 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-4 col-form-label">Descripción:</label>
+                    <label class="col-sm-4 col-form-label">Direccion:</label>
                     <div class="col-sm-8">
-                        <input class="form-control" th:field="${clienteDTO.descripcion}">
-                        <p th:if="${#field.hasErrors('descripcion')}" th:errorClass="text-danger"
-                            th:errors="${clienteDTO.descripcion}">
+                        <input class="form-control" th:field="${clienteDTO.direccion}">
+                        <p th:if="${#field.hasErrors('direccion')}" th:errorClass="text-danger"
+                            th:errors="${clienteDTO.direccion}">
                         </p>
                     </div>
                 </div>
@@ -52,14 +52,14 @@
                     <div class="col-sm-8">
                         <input class="form-control" type="number" step="1" th:field="${clienteDTO.telefono}">
                         <p th:if="${#field.hasErrors('telefono')}" th:errorClass="text-danger"
-                            th:errors="${clienteDTO.stock}">
+                            th:errors="${clienteDTO.telefono}">
                         </p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="offset-sm-4 col-md-4 d-grid">
-                        <button type="submit" class="btn btn-success">Enviar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                     <div class="offset-sm-4 col-md-4 d-grid">
                         <a class="btn btn-danger" href="/clientes">Cancelar</a>

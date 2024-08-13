@@ -66,7 +66,7 @@ public class Cliente {
         this.nombre = nombre;
     }
     
-    public @NotBlank(message="La direccion es requerida")String getDieccion() {
+    public @NotBlank(message="La direccion es requerida")String getDireccion() {
         return direccion;
     }
     public void setDireccion(@NotBlank(message="La direccion es requerida")String direccion) {

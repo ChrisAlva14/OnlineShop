@@ -28,7 +28,7 @@
         <table class="table">
             <thead> 
                 <tr>
-                    
+                    <th scope="col">Codigo</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Direccion</th>
                     <th scope="col">Email</th>
@@ -41,6 +41,8 @@
                     <td th:text="${cliente.id}"></td>
                     <td th:text="${cliente.nombre}"></td>
                     <td th:text="${cliente.direccion}"></td>
+                    <td th:text="${cliente.email}"></td>
+                    <td th:text="${cliente.telefono}"></td>
                    
                 
                     <td style="white-space:nowrap">

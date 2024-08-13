@@ -1,21 +1,15 @@
 package com.maintenance.esfe.demo.Entities;
 
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 
 
 public class ClienteDTO {
     @NotEmpty(message = "CAMPO REQUERIDO")
     private String nombre;
 
-    @Size(min = 10, message = "LA DIRECCION DEBE CONTENER AL MENOS 50 CARACTERES")
-    @Size(max = 2000, message = "LA DIRECCION NO PUEDE EXCEDER LOS 2,000 CARACTERES")
     private String direccion;
-    @Min(0)
     private String email;
 
-    @Min(0)
     private String telefono;
 
     

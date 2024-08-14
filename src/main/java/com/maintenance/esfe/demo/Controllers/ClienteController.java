@@ -95,8 +95,18 @@ public class ClienteController {
             if (bindingResult.hasErrors()) {
                 return "clientes/editClientes";
             }
-        } catch (Exception e) {
 
+            //ATRIBUTOS PARA MODIFICAR
+            cliente.setNombre(clienteDTO.getNombre());
+            cliente.setDireccion(clienteDTO.getDireccion());
+            cliente.setEmail(clienteDTO.getEmail());
+            cliente.setTelefono(clienteDTO.getTelefono());
+            
+            clienteRepository.save(cliente);
+
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+            return "redirect:/clientes";
         }
 
         return "redirect:/clientes";

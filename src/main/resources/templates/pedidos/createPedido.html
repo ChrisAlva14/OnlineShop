@@ -43,7 +43,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Codigo Cliente:</label>
                         <div class="col-sm-8">
-                            <input class="form-control" type="number" step="1" th:field="${pedidoDTO.clienteId}">
+                            <input class="form-control" type="number" step="1" min="1" th:field="${pedidoDTO.clienteId}">
                             <p th:if="${#fields.hasErrors('clienteId')}" th:errorClass="text-danger"
                                 th:errors="${pedidoDTO.clienteId}">
                             </p>

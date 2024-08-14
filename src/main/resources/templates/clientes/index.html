@@ -68,7 +68,7 @@
         <div class="container py-5">
             <h1 class="text-center">LISTADO DE CLIENTES</h1>
 
-            <a href="/clientes/create" class="btn btn-success">Crear cliente</a>
+            <a href="/clientes/create" class="btn btn-success mb-2">Crear cliente</a>
             <table class="table">
                 <thead>
                     <tr>
@@ -77,6 +77,7 @@
                         <th scope="col">Direccion</th>
                         <th scope="col">Email</th>
                         <th scope="col">Telefono</th>
+                        <th scope="col">Acciones</th>
 
                     </tr>
                 </thead>
@@ -87,8 +88,6 @@
                         <td th:text="${cliente.direccion}"></td>
                         <td th:text="${cliente.email}"></td>
                         <td th:text="${cliente.telefono}"></td>
-
-
                         <td style="white-space:nowrap">
                             <a class="btn btn-primary btn-sm"
                                 th:href="@{/clientes/edit(id=${cliente.id})}">Modificar</a>

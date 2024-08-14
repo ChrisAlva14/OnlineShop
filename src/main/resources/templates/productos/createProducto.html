@@ -65,7 +65,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Stock:</label>
                         <div class="col-sm-8">
-                            <input class="form-control" type="number" step="1" th:field="${productoDTO.stock}">
+                            <input class="form-control" type="number" step="1" min="1" th:field="${productoDTO.stock}">
                             <p th:if="${#fields.hasErrors('stock')}" th:errorClass="text-danger"
                                 th:errors="${productoDTO.stock}">
                             </p>

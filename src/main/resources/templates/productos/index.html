@@ -38,20 +38,6 @@
         .featured-products img {
             max-height: 200px;
         }
-
-        footer {
-            background-color: #f8f9fa;
-            padding: 2rem 0;
-        }
-
-        footer a {
-            color: #000;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 
@@ -67,11 +53,13 @@
             </a>
             <nav class="d-flex gap-3 p-3">
                 <a class="" href="/productos">Productos</a>
-                <a href="#">Categorías</a>
-                <a href="#">Ofertas</a>
-                <a href="#">Nosotros</a>
-                <a href="#">Contacto</a>
-                <a href="#">Carrito</a>
+                <a href="/clientes">Clientes</a>
+                <a href="/pedidos">Pedidos</a>
+                <a href="/categorias">Categorías</a>
+                <a href="/ofertas">Ofertas</a>
+                <a href="/nosotros">Nosotros</a>
+                <a href="/contactos">Contacto</a>
+                <a href="/carritos">Carrito</a>
             </nav>
         </div>
     </header>
@@ -88,7 +76,7 @@
                             th:text="${producto.categoria}"></div>
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title" th:text="${producto.nombre}"></h5>
-                            <p class="card-text" th:text="${producto.descripcion}"></p>
+                            <!-- <p class="card-text" th:text="${producto.descripcion}"></p> -->
                             <div class="mt-auto d-flex justify-content-between">
                                 <strong th:text="@{'$' + ${producto.precio}}"></strong>
                                 <span class="text-muted" th:text="${producto.stock + ' disponibles'}"></span>

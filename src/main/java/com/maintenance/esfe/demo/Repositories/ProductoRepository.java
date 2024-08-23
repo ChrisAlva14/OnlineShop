@@ -8,8 +8,6 @@ import com.maintenance.esfe.demo.Entities.Producto;
 
 public interface ProductoRepository extends JpaRepository<Producto, Integer>{
    
-
-
     // Método para encontrar productos que contengan una palabra clave en el nombre
     List<Producto> findByNombreContaining(String nombre);
 

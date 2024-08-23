@@ -1,4 +1,4 @@
-package com.maintenance.esfe.Servicios.Interfaces;
+package com.maintenance.esfe.Servicios.interfaces;
 
 import com.maintenance.esfe.demo.Entities.Pedido;
 import com.maintenance.esfe.demo.Entities.PedidoDTO;

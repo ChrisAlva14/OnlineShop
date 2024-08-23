@@ -1,6 +1,6 @@
-package com.maintenance.esfe.Servicios.Implementaciones;
+package com.maintenance.esfe.Servicios.implementaciones;
 
-import com.maintenance.esfe.Servicios.Interfaces.IPedidoService;
+import com.maintenance.esfe.Servicios.interfaces.IPedidoService;
 import com.maintenance.esfe.demo.Entities.Pedido;
 import com.maintenance.esfe.demo.Entities.PedidoDTO;
 import com.maintenance.esfe.demo.Repositories.PedidoRepository;

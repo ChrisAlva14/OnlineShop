@@ -1,9 +1,10 @@
-package com.maintenance.esfe.servicios.implementaciones;
+package com.maintenance.esfe.Servicios.Implementaciones;
 
+import com.maintenance.esfe.Servicios.Interfaces.IPedidoService;
 import com.maintenance.esfe.demo.Entities.Pedido;
 import com.maintenance.esfe.demo.Entities.PedidoDTO;
 import com.maintenance.esfe.demo.Repositories.PedidoRepository;
-import com.maintenance.esfe.servicios.interfaces.IPedidoService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class PedidoServiceImpl implements IPedidoService {
 
     @Override
     public Pedido crearPedido(PedidoDTO pedidoDTO) {
-        Pedido pedido = new Pedido();
+       Pedido pedido = new Pedido();
         pedido.setFechaPedido(pedidoDTO.getFechaPedido());
         pedido.setEstadoPedido(pedidoDTO.getEstadoPedido());
         pedido.setClienteId(pedidoDTO.getClienteId());

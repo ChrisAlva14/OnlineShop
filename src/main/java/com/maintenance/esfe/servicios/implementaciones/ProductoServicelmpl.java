@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.maintenance.esfe.Servicios.interfaces.IProductoService;
+import com.maintenance.esfe.Servicios.Interfaces.IProductoService;
 import com.maintenance.esfe.demo.Entities.Producto;
 import com.maintenance.esfe.demo.Entities.ProductoDTO;
 import com.maintenance.esfe.demo.Repositories.ProductoRepository;

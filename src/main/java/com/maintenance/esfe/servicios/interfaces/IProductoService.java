@@ -1,4 +1,4 @@
-package com.maintenance.esfe.Servicios.interfaces;
+package com.maintenance.esfe.Servicios.Interfaces;
 
 import java.util.List;
 import java.util.Optional;

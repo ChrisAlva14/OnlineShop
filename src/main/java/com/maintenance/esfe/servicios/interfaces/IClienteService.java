@@ -1,4 +1,4 @@
- package com.maintenance.esfe.Servicios.interfaces;
+ package com.maintenance.esfe.Servicios.Interfaces;
 
 import com.maintenance.esfe.demo.Entities.Cliente;
 import com.maintenance.esfe.demo.Entities.ClienteDTO;

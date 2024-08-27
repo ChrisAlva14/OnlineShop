@@ -1,6 +1,6 @@
 package com.maintenance.esfe.Servicios.implementaciones;
 
-import com.maintenance.esfe.Servicios.interfaces.IClienteService;
+import com.maintenance.esfe.Servicios.Interfaces.IClienteService;
 import com.maintenance.esfe.demo.Entities.Cliente;
 import com.maintenance.esfe.demo.Entities.ClienteDTO;
 import com.maintenance.esfe.demo.Repositories.ClienteRepository;

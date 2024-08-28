@@ -2,6 +2,7 @@ package com.maintenance.esfe.demo.Entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "Producto")
@@ -17,7 +18,8 @@ public class Producto {
     private String nombre;
 
     @NotBlank(message = "CAMPO REQUERIDO")
-    @Column(name = "descripcion")
+    @Size(min = 10, message = "LA DESCRIPCION DEBE CONTENER AL MENOS 10 CARACTERES")
+    @Size(max = 2000, message = "LA DESCRIPCION NO PUEDE EXCEDER LOS 2,000 CARACTERES")
     private String descripcion;
 
     @Column(name = "precio")

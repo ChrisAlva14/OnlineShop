@@ -86,14 +86,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="/productos">Productos</a></li>
-            <li class="nav-item"><a class="nav-link" href="/clientes">Clientes</a></li>
-            <li class="nav-item"><a class="nav-link" href="/pedidos">Pedidos</a></li>
-            <li class="nav-item"><a class="nav-link" href="/categorias">Categorías</a></li>
-            <li class="nav-item"><a class="nav-link" href="/ofertas">Ofertas</a></li>
-            <li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link" href="/contactos">Contacto</a></li>
-            <li class="nav-item"><a class="nav-link" href="/carritos">Carrito</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="/nosotros">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/productos">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/categorias">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ofertas">Ofertas</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/contactos">Contacto</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -107,8 +115,8 @@
           <h1 class="display-4 fw-bold">SC STORE: Tu tienda de productos de calidad</h1>
           <p class="lead">Encuentra los mejores productos para tu hogar y estilo de vida.</p>
           <div class="gap-3 mt-4">
-            <a href="#" class="btn btn-success btn-lg">Comprar</a>
-            <a href="#" class="btn btn-outline-danger btn-lg">Explorar</a>
+            <a href="/carritos" class="btn btn-success btn-lg">Comprar</a>
+            <a href="/productos" class="btn btn-outline-danger btn-lg">Explorar</a>
           </div>
         </div>
       </div>
@@ -127,7 +135,7 @@
                 <h5 class="card-title">Lámpara de Escritorio</h5>
                 <p class="card-text">Iluminación elegante para tu oficina.</p>
                 <h6>$19.99</h6>
-                <a href="#" class="btn btn-primary">Ver Más</a>
+                <a href="/productos" class="btn btn-primary">Ver Más</a>
               </div>
             </div>
           </div>
@@ -138,7 +146,7 @@
                 <h5 class="card-title">Picadora de verduras</h5>
                 <p class="card-text">Diseño moderno y elegante.</p>
                 <h6>$9.99</h6>
-                <a href="#" class="btn btn-primary">Ver Más</a>
+                <a href="/productos" class="btn btn-primary">Ver Más</a>
               </div>
             </div>
           </div>
@@ -149,7 +157,7 @@
                 <h5 class="card-title">Juego de Tazas</h5>
                 <p class="card-text">Porcelana de alta calidad.</p>
                 <h6>$19.99</h6>
-                <a href="#" class="btn btn-primary">Ver Más</a>
+                <a href="/productos" class="btn btn-primary">Ver Más</a>
               </div>
             </div>
           </div>
@@ -160,7 +168,7 @@
                 <h5 class="card-title">Juego de Sábanas</h5>
                 <p class="card-text">Algodón suave y duradero.</p>
                 <h6>$59.99</h6>
-                <a href="#" class="btn btn-primary">Ver Más</a>
+                <a href="/productos" class="btn btn-primary">Ver Más</a>
               </div>
             </div>
           </div>
@@ -212,7 +220,7 @@
                 <h5 class="card-title">Hogar</h5>
                 <p class="card-text">Muebles, decoración y más.</p>
                 <div class="d-flex justify-content-center">
-                  <a href="#" class="btn btn-primary">Explorar</a>
+                  <a href="/productos" class="btn btn-primary">Explorar</a>
                 </div>
               </div>
             </div>
@@ -224,7 +232,7 @@
                 <h5 class="card-title">Tecnología</h5>
                 <p class="card-text">Smartphones, Laptops, Dispositivos.</p>
                 <div class="d-flex justify-content-center">
-                  <a href="#" class="btn btn-primary">Explorar</a>
+                  <a href="/productos" class="btn btn-primary">Explorar</a>
                 </div>
               </div>
             </div>
@@ -236,7 +244,7 @@
                 <h5 class="card-title">Moda</h5>
                 <p class="card-text">Ropa, calzado y accesorios.</p>
                 <div class="d-flex justify-content-center">
-                  <a href="#" class="btn btn-primary">Explorar</a>
+                  <a href="/productos" class="btn btn-primary">Explorar</a>
                 </div>
               </div>
             </div>
@@ -248,7 +256,7 @@
                 <h5 class="card-title">Deportes</h5>
                 <p class="card-text">Equipamiento y accesorios.</p>
                 <div class="d-flex justify-content-center">
-                  <a href="#" class="btn btn-primary">Explorar</a>
+                  <a href="/productos" class="btn btn-primary">Explorar</a>
                 </div>
               </div>
             </div>
@@ -256,83 +264,82 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <!-- TESTIMONIALES -->
-  <section class="py-5 px-4 bg-light">
-    <div class="container">
-      <h2 class="display-5 fw-bold mb-4 text-center">Testimonios de Clientes</h2>
-      <p class="lead text-center">Conoce lo que nuestros clientes opinan</p>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+    <!-- TESTIMONIALES -->
+    <section class="py-5 px-4 bg-light">
+      <div class="container">
+        <h2 class="display-5 fw-bold mb-4 text-center">Testimonios de Clientes</h2>
+        <p class="lead text-center">Conoce lo que nuestros clientes opinan</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
 
-        <!-- Testimonial 1 -->
-        <div class="col">
-          <div class="card h-100 bg-white">
-            <div class="card-body">
-              <div class="d-flex align-items-center mb-3">
-                <div>
-                  <h5 class="card-title mb-0">María González</h5>
-                  <p class="text-muted mb-0">Directora de Marketing</p>
+          <!-- Testimonial 1 -->
+          <div class="col">
+            <div class="card h-100 bg-white">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div>
+                    <h5 class="card-title mb-0">María González</h5>
+                    <p class="text-muted mb-0">Directora de Marketing</p>
+                  </div>
                 </div>
+                <p class="card-text">Excelentes productos y servicio al cliente impecable. ¡Definitivamente los
+                  recomendaré!.</p>
               </div>
-              <p class="card-text">Excelentes productos y servicio al cliente impecable. ¡Definitivamente los
-                recomendaré!.</p>
             </div>
           </div>
-        </div>
 
-        <!-- Testimonial 2 -->
-        <div class="col">
-          <div class="card h-100 bg-white">
-            <div class="card-body">
-              <div class="d-flex align-items-center mb-3">
-                <div>
-                  <h5 class="card-title mb-0">Carlos Rodríguez</h5>
-                  <p class="text-muted mb-0">Emprendedor</p>
+          <!-- Testimonial 2 -->
+          <div class="col">
+            <div class="card h-100 bg-white">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div>
+                    <h5 class="card-title mb-0">Carlos Rodríguez</h5>
+                    <p class="text-muted mb-0">Emprendedor</p>
+                  </div>
                 </div>
+                <p class="card-text">Como emprendedor, valoro las herramientas que me ahorran tiempo. Esta solución no
+                  solo me ahorra tiempo, sino que también ha mejorado significativamente la eficiencia de mi equipo.</p>
               </div>
-              <p class="card-text">Como emprendedor, valoro las herramientas que me ahorran tiempo. Esta solución no
-                solo me ahorra tiempo, sino que también ha mejorado significativamente la eficiencia de mi equipo.</p>
             </div>
           </div>
-        </div>
 
-        <!-- Testimonial 3 -->
-        <div class="col">
-          <div class="card h-100 bg-white">
-            <div class="card-body">
-              <div class="d-flex align-items-center mb-3">
-                <div>
-                  <h5 class="card-title mb-0">Ana Martínez</h5>
-                  <p class="text-muted mb-0">Gerente de Proyectos</p>
+          <!-- Testimonial 3 -->
+          <div class="col">
+            <div class="card h-100 bg-white">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div>
+                    <h5 class="card-title mb-0">Ana Martínez</h5>
+                    <p class="text-muted mb-0">Gerente de Proyectos</p>
+                  </div>
                 </div>
+                <p class="card-text">Me encantó la calidad de los productos. Llegaron en perfectas condiciones y muy
+                  rápido.</p>
               </div>
-              <p class="card-text">Me encantó la calidad de los productos. Llegaron en perfectas condiciones y muy
-                rápido.</p>
             </div>
           </div>
-        </div>
 
-        <!-- Testimonial 4 -->
-        <div class="col">
-          <div class="card h-100 bg-white">
-            <div class="card-body">
-              <div class="d-flex align-items-center mb-3">
-                <div>
-                  <h5 class="card-title mb-0">Carlos Rodríguez</h5>
-                  <p class="text-muted mb-0">Supervisor de Obras</p>
+          <!-- Testimonial 4 -->
+          <div class="col">
+            <div class="card h-100 bg-white">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div>
+                    <h5 class="card-title mb-0">Carlos Rodríguez</h5>
+                    <p class="text-muted mb-0">Supervisor de Obras</p>
+                  </div>
                 </div>
+                <p class="card-text">La mejor tienda en línea que he visitado. Todo está muy bien organizado y fácil de
+                  encontrar.</p>
               </div>
-              <p class="card-text">La mejor tienda en línea que he visitado. Todo está muy bien organizado y fácil de
-                encontrar.</p>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
-    </div>
-  </section>
-
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>

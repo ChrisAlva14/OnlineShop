@@ -93,7 +93,7 @@ public class AdministradorController {
         productoRepository.save(producto);
 
         // RETORNA A LA VISTA INDEX DE PRODUCTOS
-        return "redirect:/administrador";
+        return "redirect:/productos";
     }
 
     // MODIFICAR UN PRODUCTO

@@ -11,15 +11,18 @@
 
   <style>
     body {
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    main {
+      flex-grow: 1;
     }
 
     header {
       background-color: #121212;
-      padding: 1rem 0 3rem 0;
-
     }
 
     header a,
@@ -33,10 +36,14 @@
       background-color: #121212;
       color: #fff;
       padding: 4rem 0;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .featured-products img {
-      max-height: 200px;
+      max-height: 210px;
     }
 
     footer {
@@ -52,28 +59,66 @@
     footer h5 {
       color: #ffffff;
     }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-link {
+      color: #fff;
+      font-size: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .card-body {
+        flex-direction: column;
+      }
+
+      .price,
+      .btn {
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <header class="d-flex justify-content-between align-items-center p-3 px-md-4">
-    <div class="container d-flex justify-content-between align-items-center">
-      <a href="./">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2">
-          <path d="M8 3l4 8 5-5 5 15H2L8 3z"></path>
-        </svg>
-        <!-- <span>SC STORE</span> -->
-      </a>
-      <nav class="d-flex gap-3 p-3">
-        <a class="" href="/productos">Productos</a>
-        <a href="/clientes">Clientes</a>
-        <a href="/pedidos">Pedidos</a>
-        <a href="/categorias">Categorías</a>
-        <a href="/ofertas">Ofertas</a>
-        <a href="/nosotros">Nosotros</a>
-        <a href="/contactos">Contacto</a>
-        <a href="/carritos">Carrito</a>
+  <header class="text-white py-3">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand d-flex align-items-center" href="./" aria-label="SC STORE">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2" aria-hidden="true">
+            <path d="M8 3l4 8 5-5 5 15H2L8 3z"></path>
+          </svg>
+          <!-- <span>SC STORE</span> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/productos">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/categorias">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ofertas">Ofertas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/nosotros">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contactos">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/carritos">Carrito</a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </div>
   </header>

@@ -1,4 +1,4 @@
-package com.maintenance.esfe.Servicios.implementaciones;
+package com.maintenance.esfe.Servicios.Implementaciones;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -112,5 +112,10 @@ public class ProductoServicelmpl implements IProductoService {
         } else {
             throw new RuntimeException("Producto no encontrado con id: " + id);
         }
+    }
+
+    public static ProductoDTO findById(Long id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findById'");
     }
 }

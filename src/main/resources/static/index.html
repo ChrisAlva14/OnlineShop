@@ -84,11 +84,13 @@
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link" href="/nosotros">Nosotros</a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="/productos">Productos</a>
             </li>
@@ -98,12 +100,51 @@
             <li class="nav-item">
               <a class="nav-link" href="/ofertas">Ofertas</a>
             </li>
-
             <li class="nav-item">
               <a class="nav-link" href="/contactos">Contacto</a>
             </li>
           </ul>
-        </div>
+
+          <!-- Barra de búsqueda -->
+          <form class="d-flex ms-4">
+            <div class="input-group">
+              <input class="form-control" type="search" placeholder="Buscar productos..." aria-label="Search">
+              <span class="input-group-text bg-white border-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="text-muted">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="M21 21l-4.3-4.3"></path>
+                </svg>
+              </span>
+            </div>
+          </form>
+
+          <!-- Iconos de usuario y carrito -->
+          <div class="d-flex align-items-center ms-4">
+
+            <!-- Ícono de usuario -->
+            <button class="btn p-2 rounded-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="text-white">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+
+            <!-- Ícono de carrito -->
+            <button class="btn p-2 rounded-circle ms-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="text-white">
+                <circle cx="8" cy="21" r="1"></circle>
+                <circle cx="19" cy="21" r="1"></circle>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                </path>
+              </svg>
+            </button>
+          </div>
       </nav>
     </div>
   </header>

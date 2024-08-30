@@ -9,14 +9,13 @@
 </head>
 
 <body>
-    <div class="container mt-5">
+    <!-- <div class="container mt-5">
         <div class="row">
             <div class="col-md-6">
-                <!-- Imagen del producto -->
                 <img th:src="@{'/images/' + ${producto.imagenFile}}" class="img-fluid" alt="Imagen del Producto">
             </div>
             <div class="col-md-6">
-                <!-- Detalles del producto -->
+                
                 <h1 th:text="${productoDTO.nombre}">Nombre del Producto</h1>
                 <h2 class="text-muted" th:text="'$' + ${productoDTO.precio}">Precio del Producto</h2>
                 <p th:text="${productoDTO.descripcion}">Descripción del Producto</p>
@@ -24,7 +23,6 @@
                 </p>
                 <p><strong>Stock disponible:</strong> <span th:text="${productoDTO.stock}">Stock del Producto</span></p>
 
-                <!-- Botón de agregar al carrito -->
                 <button class="btn btn-success">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-cart-plus" viewBox="0 0 16 16">
@@ -37,6 +35,69 @@
         </div>
         <div class="mt-4">
             <a href="/productos" class="btn btn-primary">Volver a la lista de productos</a>
+        </div>
+    </div> -->
+
+    <div class="container my-5">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="position-relative">
+                    <img th:src="@{'/images/' + ${producto.imagenFile}}" class="img-fluid rounded"
+                        alt="Imagen principal del producto">
+                </div>
+                <!-- <div class="d-flex justify-content-start mt-3">
+                    <img src="https://via.placeholder.com/100" class="img-thumbnail me-2" alt="Thumbnail 1">
+                    <img src="https://via.placeholder.com/100" class="img-thumbnail me-2" alt="Thumbnail 2">
+                    <img src="https://via.placeholder.com/100" class="img-thumbnail me-2" alt="Thumbnail 3">
+                    <img src="https://via.placeholder.com/100" class="img-thumbnail me-2" alt="Thumbnail 4">
+                </div> -->
+            </div>
+            <div class="col-md-6">
+                <div class="card p-4 border-0 shadow">
+                    <h1 class="h3 mb-3" th:text="${productoDTO.nombre}">Nombre del Producto</h1>
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="me-2">
+                            <span class="badge bg-warning text-dark">★ ★ ★ ★ ★</span>
+                        </div>
+                        <span class="text-muted">(128 reseñas)</span>
+                    </div>
+                    <p class="text-muted mb-4" th:text="${productoDTO.descripcion}">Descripción detallada del producto.
+                        Aquí puedes incluir todas las
+                        características y beneficios que hacen que este producto sea especial.</p>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="h4 mb-0 text-muted" th:text="'$' + ${productoDTO.precio}">$99.99</span>
+                        <span class="text-success">En stock: <span th:text="${productoDTO.stock}"></span>
+                            unidades</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-4">
+                        <span class="me-3">Cantidad</span>
+                        <button class="btn btn-outline-secondary btn-sm me-2" disabled>-</button>
+                        <span>1</span>
+                        <button class="btn btn-outline-secondary btn-sm ms-2">+</button>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button onclick="alert('PROXIMAMENTE')" class="btn btn-primary btn-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0" />
+                            </svg> Agregar al carrito
+                        </button>
+                        <button onclick="alert('PROXIMAMENTE')" class="btn btn-secondary btn-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-credit-card-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1" />
+                            </svg> Comprar ahora
+                        </button>
+                        <a href="./" class="btn btn-danger btn-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace-fill" viewBox="0 0 16 16">
+                                <path d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8z"/>
+                              </svg> Volver
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

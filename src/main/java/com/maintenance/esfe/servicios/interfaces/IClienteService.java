@@ -1,8 +1,7 @@
- package com.maintenance.esfe.Servicios.Interfaces;
+package com.maintenance.esfe.Servicios.Interfaces;
 
 import com.maintenance.esfe.demo.Entities.Cliente;
 import com.maintenance.esfe.demo.Entities.ClienteDTO;
-
 
 import java.util.List;
 import java.util.Optional;
@@ -17,5 +16,5 @@ public interface IClienteService {
     Cliente actualizarCliente(Integer id, ClienteDTO clienteDTO);
 
     void eliminarCliente(Integer id);
-     
+
 }

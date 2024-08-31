@@ -29,7 +29,7 @@ public class PedidoServiceImpl implements IPedidoService {
 
     @Override
     public Pedido crearPedido(PedidoDTO pedidoDTO) {
-       Pedido pedido = new Pedido();
+        Pedido pedido = new Pedido();
         pedido.setFechaPedido(pedidoDTO.getFechaPedido());
         pedido.setEstadoPedido(pedidoDTO.getEstadoPedido());
         pedido.setClienteId(pedidoDTO.getClienteId());

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
 public class ClienteServiceImpl implements IClienteService {
 
@@ -20,18 +19,18 @@ public class ClienteServiceImpl implements IClienteService {
 
     @Override
     public List<Cliente> obtenerTodosLosClientes() {
-       return clienteRepository.findAll();  
-  }
+        return clienteRepository.findAll();
+    }
 
     @Override
     public Optional<Cliente> obtenerClientePorId(Integer id) {
-        
+
         return clienteRepository.findById(id);
     }
 
     @Override
     public Cliente crearCliente(ClienteDTO clienteDTO) {
-        
+
         Cliente cliente = new Cliente();
         cliente.setNombre(clienteDTO.getNombre());
         cliente.setDireccion(clienteDTO.getDireccion());
@@ -43,21 +42,16 @@ public class ClienteServiceImpl implements IClienteService {
     @Override
     public Cliente actualizarCliente(Integer id, ClienteDTO clienteDTO) {
 
-        
         Cliente cliente = new Cliente();
         cliente.setNombre(clienteDTO.getNombre());
         cliente.setDireccion(clienteDTO.getDireccion());
         cliente.setEmail(clienteDTO.getEmail());
         cliente.setTelefono(clienteDTO.getTelefono());
-       return clienteRepository.save(cliente);
-    } 
+        return clienteRepository.save(cliente);
+    }
 
     @Override
     public void eliminarCliente(Integer id) {
         throw new UnsupportedOperationException("Unimplemented method 'eliminar Cliente'");
     }
-
-    
 }
-    
-

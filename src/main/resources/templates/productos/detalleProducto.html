@@ -6,51 +6,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle del Producto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        header {
+            background-color: #121212;
+            color: #fff;
+        }
+
+        header a,
+        header a:hover {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.25rem;
+        }
+
+        .hero-section {
+            background-color: #121212;
+            color: #fff;
+            padding: 4rem 0;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .featured-products img {
+            max-height: 210px;
+        }
+
+        footer {
+            background-color: rgb(27, 30, 31);
+            padding: 2rem 0;
+            color: #ffffff;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-link {
+            color: #fff;
+            font-size: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .card-body {
+                flex-direction: column;
+            }
+
+            .price,
+            .btn {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6">
-                <img th:src="@{'/images/' + ${producto.imagenFile}}" class="img-fluid" alt="Imagen del Producto">
-            </div>
-            <div class="col-md-6">
-                
-                <h1 th:text="${productoDTO.nombre}">Nombre del Producto</h1>
-                <h2 class="text-muted" th:text="'$' + ${productoDTO.precio}">Precio del Producto</h2>
-                <p th:text="${productoDTO.descripcion}">Descripción del Producto</p>
-                <p><strong>Categoría:</strong> <span th:text="${productoDTO.categoria}">Categoría del Producto</span>
-                </p>
-                <p><strong>Stock disponible:</strong> <span th:text="${productoDTO.stock}">Stock del Producto</span></p>
-
-                <button class="btn btn-success">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-cart-plus" viewBox="0 0 16 16">
-                        <path
-                            d="M8 9.5a.5.5 0 0 0 .5-.5v-2h2a.5.5 0 0 0 0-1h-2V4a.5.5 0 0 0-1 0v2H5a.5.5 0 0 0 0 1h2v2a.5.5 0 0 0 .5.5zm-4-3A1.5 1.5 0 0 1 5.5 4h5A1.5 1.5 0 0 1 12 5.5v5A1.5 1.5 0 0 1 10.5 12h-5A1.5 1.5 0 0 1 4 10.5v-5zM2 5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5z" />
+    <header class="py-4 shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand d-flex align-items-center" href="./" aria-label="SC STORE">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2" aria-hidden="true">
+                    <path d="M8 3l4 8 5-5 5 15H2L8 3z"></path>
+                </svg>
+            </a>
+            <form class="d-flex w-50">
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Buscar productos..." aria-label="Buscar">
+                    <button class="btn btn-outline-light" type="submit" aria-label="Buscar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="M21 21l-4.3-4.3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            <div class="d-flex align-items-center gap-3">
+                <button class="btn p-2 rounded-circle" aria-label="Perfil de usuario">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
                     </svg>
-                    Agregar al carrito
+                </button>
+                <button class="btn p-2 rounded-circle ms-3" aria-label="Carrito de compras">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="8" cy="21" r="1"></circle>
+                        <circle cx="19" cy="21" r="1"></circle>
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12">
+                        </path>
+                    </svg>
                 </button>
             </div>
         </div>
-        <div class="mt-4">
-            <a href="/productos" class="btn btn-primary">Volver a la lista de productos</a>
-        </div>
-    </div> -->
+    </header>
 
-    <div class="container my-5">
+    <main class="container my-3">
         <div class="row g-4">
             <div class="col-md-6">
-                <div class="position-relative">
-                    <img th:src="@{'/images/' + ${producto.imagenFile}}" class="img-fluid rounded"
-                        alt="Imagen principal del producto">
-                </div>
-                <!-- <div class="d-flex justify-content-start mt-3">
-                    <img src="https://via.placeholder.com/100" class="img-thumbnail me-2" alt="Thumbnail 1">
-                    <img src="https://via.placeholder.com/100" class="img-thumbnail me-2" alt="Thumbnail 2">
-                    <img src="https://via.placeholder.com/100" class="img-thumbnail me-2" alt="Thumbnail 3">
-                    <img src="https://via.placeholder.com/100" class="img-thumbnail me-2" alt="Thumbnail 4">
-                </div> -->
+                <img th:src="@{'/images/' + ${producto.imagenFile}}" class="img-fluid rounded"
+                    alt="Imagen principal del producto">
             </div>
             <div class="col-md-6">
                 <div class="card p-4 border-0 shadow">
@@ -62,28 +135,26 @@
                         <span class="text-muted">(128 reseñas)</span>
                     </div>
                     <p class="text-muted mb-4" th:text="${productoDTO.descripcion}">Descripción detallada del producto.
-                        Aquí puedes incluir todas las
-                        características y beneficios que hacen que este producto sea especial.</p>
+                    </p>
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="h4 mb-0 text-muted" th:text="'$' + ${productoDTO.precio}">$99.99</span>
                         <span class="text-success">En stock: <span th:text="${productoDTO.stock}"></span>
                             unidades</span>
                     </div>
                     <div class="d-flex align-items-center mb-4">
-                        <span class="me-3">Cantidad</span>
-                        <button class="btn btn-outline-secondary btn-sm me-2" disabled>-</button>
-                        <span>1</span>
-                        <button class="btn btn-outline-secondary btn-sm ms-2">+</button>
+                        <label for="quantity" class="me-3">Cantidad</label>
+                        <input type="number" id="quantity" class="form-control text-center" value="1"
+                            min="1" style="width: 75px;">
                     </div>
                     <div class="d-grid gap-2">
-                        <button onclick="alert('PROXIMAMENTE')" class="btn btn-primary btn-lg">
+                        <button class="btn btn-primary btn-lg" onclick="alert('PROXIMAMENTE')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                                 <path
                                     d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0" />
                             </svg> Agregar al carrito
                         </button>
-                        <button onclick="alert('PROXIMAMENTE')" class="btn btn-secondary btn-lg">
+                        <button class="btn btn-secondary btn-lg" onclick="alert('PROXIMAMENTE')">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-credit-card-fill" viewBox="0 0 16 16">
                                 <path
@@ -91,15 +162,17 @@
                             </svg> Comprar ahora
                         </button>
                         <a href="./" class="btn btn-danger btn-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-backspace-fill" viewBox="0 0 16 16">
-                                <path d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8z"/>
-                              </svg> Volver
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-backspace-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8z" />
+                            </svg> Volver
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

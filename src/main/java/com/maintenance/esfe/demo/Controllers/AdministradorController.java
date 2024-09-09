@@ -92,8 +92,8 @@ public class AdministradorController {
         // GUARDAR EN EL REPOSITORIO
         productoRepository.save(producto);
 
-        // RETORNA A LA VISTA INDEX DE PRODUCTOS
-        return "redirect:/productos";
+        // RETORNA A LA VISTA INDEX DE ADMINISTRADOR
+        return "redirect:/administrador";
     }
 
     // MODIFICAR UN PRODUCTO
